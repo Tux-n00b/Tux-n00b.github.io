@@ -39,4 +39,4 @@
 Complete the introductory modules and familiarize yourself with the platform's interface.
 Lets get back to the basics of cybersecurity and networking concepts.
 
-![DAY 1](Images/day%201.png)
+![DAY 1](/assets/images/Images/day%201.png)

@@ -1,0 +1,10 @@
+{
+  "sec-jornal": {
+    "title": "Security Journal",
+    "date": "2023-10-15",
+    "description": "My security learning journey",
+    "tags": ["security", "ctf"],
+    "slug": "sec-jornal",
+    "thumbnail": "/assets/Thumbnails/Day 1.png"
+  }
+}

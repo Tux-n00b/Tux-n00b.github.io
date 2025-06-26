@@ -1,0 +1,264 @@
+ 
+body {
+    font-family: 'Fira Code', monospace;
+    background-color: #1a1a1a;
+    color: #e6e6e6;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+
+/* Add to your existing CSS */
+.animate-pulse {
+    animation: pulse 1s infinite;
+}
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* For the buttons */
+#proceed-btn {
+    background-color: #065f46; /* green-800 */
+}
+#proceed-btn:hover {
+    background-color: #047857; /* green-700 */
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+.prompt-end { animation: blink 1s step-end infinite; }
+
+.typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 0.8s steps(40, end);
+}
+
+.home-btn:hover {
+    background-color: #e6e6e6;
+    color: #1a1a1a;
+    transition: all 0.2s ease;
+}
+
+.mode-toggle {
+    border: 2px solid #333;
+}
+
+.mode-toggle:hover::after {
+    content: '$';
+}
+
+.terminal-bg {
+    background-color: #252525;
+}
+
+/* Navigation styles */
+.nav-command {
+    color: #9ca3af;
+    transition: color 0.2s;
+}
+
+.nav-command:hover {
+    color: #ffffff;
+}
+
+.nav-prompt {
+    color: #10b981;
+}
+
+/* Footer styles */
+.footer {
+    background-color: #191a1d;
+    border-top: 1px solid #3b3b3b;
+    color: white;
+    font-weight: 600;
+}
+
+/* Content styles */
+.content-hidden {
+    display: none;
+}
+
+
+/* Easter Egg Notification */
+@keyframes terminalFadeIn {
+    from { opacity: 0; transform: translate(-50%, -60%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+.sudo-notification {
+    animation: terminalFadeIn 0.3s ease-out forwards;
+    min-width: 300px;
+    max-width: 90%;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+}
+
+/* Make sure it appears above other content */
+.z-50 {
+    z-index: 50;
+}
+
+
+
+
+/* Blog stylings*/
+.blog-card {
+    background-color: var(--terminal-bg);
+    border-left: 3px solid var(--accent-green);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-3px);
+    background-color: #333;
+}
+
+.blog-thumbnail {
+    width: 6rem;
+    height: 6rem;
+    object-fit: cover;
+    border-radius: 0.25rem;
+    margin-right: 1rem;
+}
+
+.blog-title {
+    color: var(--accent-green);
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.blog-date {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.blog-excerpt {
+    color: var(--text-primary);
+    margin-top: 0.5rem;
+}
+
+.read-more {
+    color: var(--accent-cyan);
+    display: inline-block;
+    margin-top: 0.75rem;
+}
+
+
+
+
+
+
+/* post css*/
+/* Post-specific styles */
+.post-article {
+    margin-bottom: 4rem;
+}
+
+.post-header {
+    margin-bottom: 2.5rem;
+}
+
+.post-content {
+    color: #d1d5db;
+    line-height: 1.75;
+    font-size: 1.125rem;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+    color: #f3f4f6;
+    font-weight: 700;
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+.post-content h1 {
+    font-size: 1.8em;
+    border-bottom: 1px solid #1c1d20;
+    padding-bottom: 0.3em;
+}
+
+.post-content h2 {
+    font-size: 1.5em;
+}
+
+.post-content h3 {
+    font-size: 1.25em;
+}
+
+.post-content a {
+    color: #427555;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.post-content a:hover {
+    text-decoration: none;
+}
+
+.post-content code {
+    font-family: 'Fira Code', monospace;
+    background-color: #2f3d50;
+    padding: 0.2em 0.4em;
+    border-radius: 0.25rem;
+    font-size: 0.9em;
+}
+
+.post-content pre {
+    background-color: #1f2327;
+    border: 1px solid #ffffff;
+    border-radius: 0.375rem;
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 1.5em 0;
+    font-family: 'Fira Code', monospace;
+}
+
+.post-content pre code {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
+.post-content blockquote {
+    border-left: 4px solid #4f9167;
+    padding-left: 1em;
+    margin: 1.5em 0;
+    color: #9ca3af;
+    font-style: italic;
+}
+
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.375rem;
+    margin: 1.5em auto;
+    display: block;
+}
+
+.post-content ul,
+.post-content ol {
+    margin: 1.5em 0;
+    padding-left: 1.5em;
+}
+
+.post-content li {
+    margin-bottom: 0.5em;
+}
+
+.post-tag {
+    background-color: #131314;
+    color: #d1d5db;
+    padding: 0.25em 0.5em;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-family: 'Fira Code', monospace;
+}

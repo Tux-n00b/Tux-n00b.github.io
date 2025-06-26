@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>>_Tux | Decrypting the Labyrinth</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="project/css/style.css" rel="stylesheet">
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Header with Dark Mode Toggle -->
+    <header class="container mx-auto px-4 py-8 flex justify-between items-start">
+        <div>
+            <h1 id="main-title" class="text-4xl md:text-5xl font-bold mb-2 cursor-pointer home-btn inline-block px-2 rounded"> <span class="text-green-400">></span>_Tux</h1>
+            <p class="text-xl text-gray-400">Decrypting the Labyrinth</p>
+        </div>
+        <button id="theme-toggle" class="mode-toggle px-3 py-1 rounded text-sm bg-gray-800">
+           [white@root:~<span class="prompt-end">#</span>]
+<!-- <button id="theme-toggle" class="mt-2 px-3 py-1 border border-gray-600 rounded hover:bg-gray-800 transition"> -->
+    <!-- [graphite@root:~#] -->
+<!-- </button> -->
+        </button>
+        </button>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="container mx-auto px-4 mb-12">
+        <ul class="space-y-2">
+            <li><span class="nav-prompt">[user@tux:~$]</span> <a href="project/about.html" class="nav-command">whoami</a></li>
+            <li><span class="nav-prompt">[user@tux:~$]</span> <a href="project/blogs.html" class="nav-command">ls blogs</a></li>
+            <li><span class="nav-prompt">[user@tux:~$]</span> <a href="project/tags.html" class="nav-command">grep tags</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4">
+        <section class="text-center py-12">
+            <p class="text-gray-500 mb-4">Type a command above to begin</p>
+            <p class="text-gray-600">// system initialized</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer py-6 text-center">
+        <p>SYSTEM STATUS • ONLINE <span id="uptime-counter">202d 16h 36m 33s</span> • © 2025</p>
+    </footer>
+
+    <script src="project/js/main.js"></script>
+    <script src="project/js/home.js"></script>
+</body>
+</html>

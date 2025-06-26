@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>>_Tux | [POST_TITLE]</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="/project/css/style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!--<link href="../css/post.css" rel="stylesheet"> -->
+</head>
+<body class="min-h-screen flex flex-col bg-gray-900 text-gray-200">
+    <!-- Header -->
+    <header class="container mx-auto px-4 py-8 flex justify-between items-start">
+        <div>
+           <h1 id="main-title" class="text-4xl md:text-5xl font-bold mb-2 cursor-pointer home-btn inline-block px-2 rounded"> <span class="text-green-400">></span>_Tux</h1>
+                
+            <p class="text-xl text-gray-400">Decrypting the Labyrinth</p>
+        </div>
+        <button id="theme-toggle" class="mode-toggle px-3 py-1 rounded text-sm bg-gray-800">
+            [white@root:~<span class="prompt-end">#</span>]
+        </button>
+    </header>
+
+    <!-- Post Content -->
+    <main class="flex-grow container mx-auto px-4 max-w-4xl">
+        <article class="post-article">
+            <header class="post-header">
+                <h1 id="post-title" class="text-3xl font-bold mb-2"></h1>
+                <div class="post-meta flex items-center gap-4 text-sm text-gray-400 mb-8">
+                    <span id="post-date"></span>
+                    <span>•</span>
+                    <div id="post-tags" class="flex gap-2"></div>
+                </div>
+            </header>
+
+            <div id="post-content" class="post-content prose-terminal"></div>
+
+            <footer class="post-footer mt-12 pt-6 border-t border-gray-800">
+                <a href="/project/blogs.html" class="text-green-400 hover:underline flex items-center">
+                    <span class="mr-2">←</span> Back to all posts
+                </a>
+            </footer>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer py-6 text-center">
+        <p>SYSTEM STATUS • ONLINE <span id="uptime-counter">0d 0h 0m 0s</span> • © 2025</p>
+    </footer>
+
+    <!--<script src="../js/main.js"></script>-->
+    <script src="/project/js/post.js"></script>
+</body>
+</html>

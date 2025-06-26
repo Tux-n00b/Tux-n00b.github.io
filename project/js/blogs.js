@@ -24,6 +24,8 @@ document.addEventListener('DOMContentLoaded', async function() {
         
         // Convert to array if needed
         const posts = Array.isArray(postsData.posts) ? postsData.posts : Object.values(postsData);
+        // Sort posts by date descending
+        posts.sort((a, b) => new Date(b.date) - new Date(a.date));
         
         if (posts.length === 0) {
             container.innerHTML = '<p class="text-gray-400">No posts found</p>';

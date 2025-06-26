@@ -61,9 +61,11 @@ function renderPost(meta, content) {
     tagsContainer.innerHTML = '';
     if (meta.tags && meta.tags.length > 0) {
         meta.tags.forEach(tag => {
-            const tagElement = document.createElement('span');
-            tagElement.className = 'post-tag';
+            const tagElement = document.createElement('a');
+            tagElement.className = 'post-tag cursor-pointer hover:bg-green-700 hover:text-black transition';
             tagElement.textContent = tag;
+            tagElement.href = `/project/tags.html?tag=${encodeURIComponent(tag)}`;
+            tagElement.title = `Show all posts tagged with ${tag}`;
             tagsContainer.appendChild(tagElement);
         });
     }

@@ -10,9 +10,9 @@
 
   "kioptrix5": {
     "title": "Kioptrix 5",
-    "date": "2025-02-15",
+    "date": "2025-02-07",
     "description": "Kioptrix 5",
-    "tags": ["security", "ctf"],
+    "tags": ["Active Directory", "Web Exploitation"],
     "slug": "kioptrix5",
     "thumbnail": "/assets/Thumbnails/kioptrix5.png"
   }

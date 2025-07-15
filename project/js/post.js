@@ -1,9 +1,12 @@
+import { fetchPosts, fetchPostContent } from './fetchPosts.js';
+import { formatDate, renderError } from './utils.js';
+
 document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const slug = urlParams.get('slug');
     
     if (!slug || slug === 'undefined') {
-        renderError('Invalid post specified');
+        renderError(document.getElementById('post-content'), 'Invalid post specified');
         return;
     }
 
@@ -18,43 +21,26 @@ document.addEventListener('DOMContentLoaded', function() {
 async function loadPost(slug) {
     try {
         // Load post metadata
-        const postsResponse = await fetch('../../blog.json');
-        if (!postsResponse.ok) throw new Error('Failed to load posts');
-        
-        const posts = await postsResponse.json();
-        const postMeta = posts[slug];
-        
+        const posts = await fetchPosts();
+        let postMeta = posts.find(post => post.slug === slug);
         if (!postMeta) {
             // Try case-insensitive match
-            const foundKey = Object.keys(posts).find(key => 
-                key.toLowerCase() === slug.toLowerCase());
-            if (foundKey) {
-                return loadPost(foundKey);
-            }
-            throw new Error('Post not found');
+            postMeta = posts.find(post => post.slug.toLowerCase() === slug.toLowerCase());
+            if (!postMeta) throw new Error('Post not found');
         }
-        
         // Load markdown content
-        const contentResponse = await fetch(`../../posts/${postMeta.slug}.md`);
-        if (!contentResponse.ok) throw new Error('Failed to load post content');
-        
-        const content = await contentResponse.text();
+        const content = await fetchPostContent(postMeta.slug);
         renderPost(postMeta, content);
-        
     } catch (error) {
         console.error('Error loading post:', error);
-        renderError(error.message);
+        renderError(document.getElementById('post-content'), error.message);
     }
 }
 
 function renderPost(meta, content) {
     document.title = `>_Tux | ${meta.title}`;
     document.getElementById('post-title').textContent = meta.title;
-    document.getElementById('post-date').textContent = new Date(meta.date).toLocaleDateString('en-US', {
-        year: 'numeric', 
-        month: 'long',
-        day: 'numeric'
-    });
+    document.getElementById('post-date').textContent = formatDate(meta.date);
 
     // Render tags
     const tagsContainer = document.getElementById('post-tags');
@@ -80,16 +66,4 @@ function renderPost(meta, content) {
     // Render markdown content
     const contentWithoutFrontMatter = content.replace(/^---[\s\S]*?---/, '');
     document.getElementById('post-content').innerHTML = marked.parse(contentWithoutFrontMatter);
-}
-
-function renderError(message) {
-    const postContent = document.getElementById('post-content');
-    postContent.innerHTML = `
-        <div class="text-center py-12">
-            <p class="text-red-400">${message}</p>
-            <a href="/blogs.html" class="text-green-400 hover:underline mt-4 inline-block">
-                Back to Blog
-            </a>
-        </div>
-    `;
 }

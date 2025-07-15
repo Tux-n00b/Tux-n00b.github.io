@@ -143,6 +143,8 @@ document.querySelector('.prompt-end').addEventListener('click', function() {
     }
 });
 
+// (Uptime timer logic removed; now in uptime.js)
+
 
 
 

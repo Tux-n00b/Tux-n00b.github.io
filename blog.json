@@ -5,7 +5,7 @@
     "description": "My security learning journey",
     "tags": ["security", "ctf"],
     "slug": "sec-jornal",
-    "thumbnail": "/assets/Thumbnails/Day 1.png"
+    "thumbnail": "/assets/Thumbnails/Sec journal.png"
   },
 
   "kioptrix5": {
@@ -15,6 +15,15 @@
     "tags": ["Active Directory", "Web Exploitation"],
     "slug": "kioptrix5",
     "thumbnail": "/assets/Thumbnails/kioptrix5.png"
+  },
+
+  "binary-exploitation-journey": {
+    "title": "Binary Exploitation Journey",
+    "date": "2025-07-15",
+    "description": "Binary Exploitation Learning Journey Walkthrough",
+    "tags": ["Binary Exploitation"],
+    "slug": "binary-exploitation-journey",
+    "thumbnail": "/assets/Thumbnails/binary-exploitation-journey.png"
   }
 }
 
